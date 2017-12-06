@@ -1,0 +1,51 @@
+{% set name = "flask-pymongo" %}
+{% set version = "0.5.1" %}
+{% set file_ext = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "2baaa2ba5107d72b3a8bd4b5c0c8881316e35340ad1ae979cc13f1f3c8843b3d" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - flask >=0.8
+    - pymongo >=2.5
+  run:
+    - python
+    - flask >=0.8
+    - pymongo >=2.5
+
+test:
+  imports:
+    - flask_pymongo
+
+about:
+  home: http://flask-pymongo.readthedocs.org/
+  license: BSD License
+  license_family: BSD
+  license_file: ''
+  summary: PyMongo support for Flask applications
+  description: "\nFlask-PyMongo\n-------------\n\nPyMongo support for Flask applications.\n\nInstallation\n============\n\nFlask-PyMongo is pip-installable:\n\n    pip install Flask-PyMongo\n\nYou can install\
+    \ the latest development snapshot like so:\n\n    pip install http://github.com/dcrosta/flask-pymongo/tarball/master#egg=Flask-PyMongo-dev\n\nUpgrading\n~~~~~~~~~\n\n- Version 0.2.0 introduced a dependency\
+    \ on PyMongo version 2.4 or later, and\n  introduced some potential backwards-breaking changes. Please review the\n  `Changelog <http://flask-pymongo.readthedocs.org/en/latest/#history-and-contributors>`_\n\
+    \  carefully before upgrading.\n- Version 0.3.0 removed the `ReadPreference\n  <http://api.mongodb.org/python/current/api/pymongo/index.html#pymongo.read_preferences.ReadPreference>`_\n  redefinitions\
+    \ in ``flask_pymongo``, in favor of using the constants directly\n  from `PyMongo <http://api.mongodb.org/python/current/>`_. Please review the\n  `Changelog <http://flask-pymongo.readthedocs.org/en/latest/#history-and-contributors>`_\n\
+    \  carefully before upgrading.\n\nDevelopment\n===========\n\nSource code is hosted in `GitHub <https://github.com/dcrosta/flask-pymongo>`_\n(contributions are welcome!)\n"
+  doc_url: ''
+  dev_url: ''
+
+extra:
+  recipe-maintainers: ''
