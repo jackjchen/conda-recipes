@@ -1,0 +1,44 @@
+{% set name = "flask-ldapconn" %}
+{% set version = "0.7.2" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 3921bf0cebebe0afc1d03d9b03dbfbec69f3e2ecd45097aa48f804ee0fb3c264
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv "
+
+requirements:
+  host:
+    - flask >=0.12
+    - ldap3 >=2.3
+    - pip
+    - python
+    - six >=1.10
+  run:
+    - flask >=0.12
+    - ldap3 >=2.3
+    - python
+    - six >=1.10
+
+test:
+  imports:
+    - flask_ldapconn
+
+about:
+  home: http://github.com/rroemhild/flask-ldapconn
+  license: BSD
+  license_family: BSD
+  license_file: 
+  summary: Pure python, LDAP connection and ORM for Flask Applications
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - your-github-id-here
