@@ -17,10 +17,12 @@ requirements:
     - openssl
     - pcre
     - zlib
+    - expat
   run:
     - openssl
     - pcre
     - zlib
+    - expat
 
 about:
   home: http://httpd.apache.org/
