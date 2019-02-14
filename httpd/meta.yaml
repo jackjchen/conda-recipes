@@ -10,7 +10,7 @@ build:
 source:
   fn: "httpd-{{ httpd_version }}.tar.gz"
   url: "http://mirrors.advancedhosters.com/apache/httpd/httpd-{{ httpd_version }}.tar.gz"
-  sha256: 7dc65857a994c98370dc4334b260101a7a04be60e6e74a5c57a6dee1bc8f394a
+  sha256: 38d0b73aa313c28065bf58faf64cec12bf7c7d5196146107df2ad07541aa26a6
 
 requirements:
   build:
