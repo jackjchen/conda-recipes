@@ -1,0 +1,27 @@
+{% set httpd_version = '2.4.38' %}
+
+package:
+  name: httpd
+  version: "{{ httpd_version }}"
+
+build:
+  number: 0
+
+source:
+  fn: "httpd-{{ httpd_version }}.tar.gz"
+  url: "http://mirrors.advancedhosters.com/apache/httpd/httpd-{{ httpd_version }}.tar.gz"
+
+requirements:
+  build:
+    - openssl
+    - pcre
+    - zlib
+  run:
+    - openssl
+    - pcre
+    - zlib
+
+about:
+  home: http://httpd.apache.org/
+  license: Apache
+  summary: The Apache HTTP Server Project is an effort to develop and maintain an open-source HTTP server for modern operating systems including UNIX and Windows.
